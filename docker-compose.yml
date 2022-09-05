@@ -1,0 +1,33 @@
+version: "3.8"
+
+services: 
+  postgres:
+    image: postgres
+    container_name: database_postgres
+    restart: always
+    environment: 
+      - DATABASE_HOST=localhost
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=cobrando
+    ports: 
+      - 5435:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: "rafa@rafa.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "80:80"
+    depends_on: 
+      - postgres 
+
+  
+
+
+
+
+
+
+      
